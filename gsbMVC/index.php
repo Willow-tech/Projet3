@@ -21,10 +21,10 @@ switch($uc){
 		include("controleurs/c_etatFrais.php");break; 
 	}
 	case 'validerFrais' :{
-		include("controleurs/c_validerFrais");break;
+		include("controleurs/c_validerFrais.php");break;
 	}
 	case 'paiementFrais' :{
-		include("controleurs/c_paiementFrais");break;
+		include("controleurs/c_paiementFrais.php");break;
 	}
 }
 include("vues/v_pied.php") ;
