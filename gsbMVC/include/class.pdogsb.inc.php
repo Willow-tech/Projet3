@@ -306,5 +306,11 @@ class PdoGsb{
 		where fichefrais.idvisiteur ='$idvisiteur' and fichefrais.mois = '$mois'";
 		PdoGsb::$monPdo->exec($req);
 	}
+    public function getFichesFraisValidees(){
+    $req = "select id, nom, prenom, mois from fichefrais join visiteur on fichefrais.idvisiteur = visiteur.id and idetat = 'VA'";
+    $ligneResultat1 = PdoGsb::$monPdo->query($req);
+    $ligneResultat = $ligneResultat1->fetchall();
+    return $ligneResultat;
+    }
 }
 ?>
