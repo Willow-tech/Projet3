@@ -6,10 +6,10 @@
             <label for="lstFiche" accesskey="n">Fiche validée : </label>
             <select id="lstFiche" name="lstFiche">
                 <?php
-                foreach ($tabVisiteurs as $unVisiteur) {
+                foreach ($tabFichesValidees as $uneFicheValidee) {
                     ?>
-                    <option value="<?php echo $unVisiteur['id']; ?>"><?php echo $unVisiteur['prenom'] . " " . $unVisiteur['nom']; ?></option>
-                    <?php
+                    <option value="<?php echo $uneFicheValidee['idvisiteur, mois']; ?>"><?php echo $uneFicheValidee['prenom'] . " " . $uneFicheValidee['nom'] . " " . $uneFicheValidee['mois']; ?></option>
+                <?php
                 }
                 ?>
             </select> 

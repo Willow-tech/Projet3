@@ -53,13 +53,13 @@ switch ($action) {
     case "validerFiche": {
         $leMois = $_SESSION['ficheMois'];
         $idVisiteur = $_SESSION['ficheVisiteur'];
-        $pdo->validerFiche($idVisiteur, $leMois);
         if (isset($_POST['refuse']) && $_POST['refuse']=='refuse'){
             $pdo->changeLibelle($idVisiteur,$leMois, $_POST['idligne']);
         }
-#        $pdo->modifierFrais($idVisiteur, $leMois);
-#        $pdo->modifierFraisHorsForfait($idVisiteur, $leMois);
-        echo 'la fiche à bien été validée';
+        $pdo->modifierFrais($idVisiteur, $leMois, $_POST['quantite']);
+        $pdo->modifierFraisHorsForfait($idVisiteur, $leMois, $_POST['libelle'], $_POST['date'], $_POST['montant']);
+        $pdo->validerFiche($idVisiteur, $leMois);
+        echo 'La fiche à bien été validée';
     }
 }
 include("vues/v_pied.php");
