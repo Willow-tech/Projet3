@@ -1,11 +1,12 @@
 <?php
 include("vues/v_sommaire_comptable.php");
 $action = $_REQUEST['action'];
-$tabVisiteurs = $pdo->getLesVisiteurs();
+
 
 switch ($action) {
     case "selectionnerFiche": {
-        
+        $idVisiteur = $_SESSION['ficheVisiteur']; 
+        $tabFichesValidees  = $pdo->getFichesValidees($idVisiteur);
         include ('vues/v_listeFiche.php');
         break;
     }
@@ -22,7 +23,7 @@ switch ($action) {
         $nbJustificatifs = $lesInfosFicheFrais['nbjustificatifs'];
         $dateModif = $lesInfosFicheFrais['dateModif'];
         $dateModif = dateAnglaisVersFrancais($dateModif);
-        include("vues/v_etatFrais2.php");
+        include("vues/v_etatFrais3.php");
         break;
     }
     case "misePaiement": {
